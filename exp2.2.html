@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Filter</title>
+
+  <style>
+    .box {
+      border: 1px solid black;
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Product Filter</h2>
+
+<select onchange="filter(this.value)">
+  <option value="all">All</option>
+  <option value="electronics">Electronics</option>
+  <option value="clothing">Clothing</option>
+</select>
+
+<div class="box electronics">
+  Boat Headphones <br>
+  $129.99
+</div>
+
+<div class="box clothing">
+  Polo T-Shirt <br>
+  $24.99
+</div>
+
+<div class="box stationary">
+    Nataraj Pencil <br>
+    $1
+</div>
+<script>
+function filter(type) {
+  let items = document.getElementsByClassName("box");
+
+  for (let i = 0; i < items.length; i++) {
+    if (type == "all" || items[i].classList.contains(type)) {
+      items[i].style.display = "block";
+    } else {
+      items[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>

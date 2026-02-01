@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Counter</title>
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #dbeafe;   /* page background */
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      background-color: #ffffff;  /* box background */
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    textarea {
+      width: 300px;
+      height: 100px;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    #counter {
+      margin-top: 5px;
+      font-size: 14px;
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <textarea id="msg" maxlength="150"
+      placeholder="Type your message..."
+      oninput="countChar()"></textarea>
+
+    <div id="counter">0/150</div>
+  </div>
+
+  <script>
+    function countChar() {
+      let text = document.getElementById("msg").value;
+      document.getElementById("counter").innerText =
+        text.length + "/150";
+    }
+  </script>
+
+</body>
+</html>

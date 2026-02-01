@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG Drawing Tool</title>
+
+  <style>
+    svg {
+      border: 2px solid black;
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>SVG Drawing Tool</h2>
+
+<svg id="board" width="400" height="300"></svg>
+
+<script>
+  let svg = document.getElementById("board");
+  let drawing = false;
+  let line;
+
+  svg.addEventListener("mousedown", function (e) {
+    drawing = true;
+
+    line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", e.offsetX);
+    line.setAttribute("y1", e.offsetY);
+    line.setAttribute("x2", e.offsetX);
+    line.setAttribute("y2", e.offsetY);
+    line.setAttribute("stroke", "black");
+
+    svg.appendChild(line);
+  });
+
+  svg.addEventListener("mousemove", function (e) {
+    if (drawing) {
+      line.setAttribute("x2", e.offsetX);
+      line.setAttribute("y2", e.offsetY);
+    }
+  });
+
+  svg.addEventListener("mouseup", function () {
+    drawing = false;
+  });
+</script>
+
+</body>
+</html>
